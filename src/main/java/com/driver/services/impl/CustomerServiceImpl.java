@@ -76,6 +76,7 @@ public class CustomerServiceImpl implements CustomerService {
 			tripDriver.getCab().setAvailable(false);
 
 			customerRepository2.save(tripcustomer);
+			driverRepository2.save(tripDriver);
 
 		}
 		catch(Exception e){
