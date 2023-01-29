@@ -86,7 +86,7 @@ public class CustomerServiceImpl implements CustomerService {
 			return nextTrip;
 		}
 		catch (Exception e){
-			return null;
+			return new TripBooking();
 		}
 	}
 
