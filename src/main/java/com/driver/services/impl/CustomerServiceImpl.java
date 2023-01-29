@@ -46,8 +46,6 @@ public class CustomerServiceImpl implements CustomerService {
 		//Book the driver with lowest driverId who is free (cab available variable is Boolean.TRUE). If no driver is available, throw "No cab available!" exception
 		//Avoid using SQL query
 
-		TripBooking nextTrip = new TripBooking();
-
 		try {
 
 			Driver tripDriver = null;
@@ -67,6 +65,8 @@ public class CustomerServiceImpl implements CustomerService {
 
 			Customer tripcustomer = customerRepository2.findById(customerId).get();
 
+			TripBooking nextTrip = new TripBooking();
+
 			nextTrip.setFromLocation(fromLocation);
 			nextTrip.setToLocation(toLocation);
 			nextTrip.setDistanceInKm(distanceInKm);
@@ -83,12 +83,11 @@ public class CustomerServiceImpl implements CustomerService {
 			customerRepository2.save(tripcustomer);
 			driverRepository2.save(tripDriver);
 
-
+			return nextTrip;
 		}
 		catch (Exception e){
-
+			return null;
 		}
-		return nextTrip;
 	}
 
 	@Override
