@@ -48,7 +48,6 @@ public class CustomerServiceImpl implements CustomerService {
 
 		TripBooking nextTrip = new TripBooking();
 
-		try{
 			Customer tripcustomer = customerRepository2.findById(customerId).get();
 			Driver tripDriver = null;
 
@@ -77,11 +76,6 @@ public class CustomerServiceImpl implements CustomerService {
 
 			customerRepository2.save(tripcustomer);
 			driverRepository2.save(tripDriver);
-
-		}
-		catch(Exception e){
-
-		}
 
 		return nextTrip;
 	}
